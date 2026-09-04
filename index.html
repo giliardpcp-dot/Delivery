@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery PWA</title>
+    <!-- Link para o Manifesto do PWA (vamos criar depois) -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍔 Delivery App</h1>
+            <p>Seu sistema de pedidos rápido e prático</p>
+        </header>
+
+        <!-- Área de Login / Autenticação -->
+        <main id="auth-section">
+            <div class="card">
+                <h2>Entrar na sua conta</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" required placeholder="Sua senha">
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+                <p id="msg-erro" class="erro"></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Importando o SDK do PocketBase direto via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
