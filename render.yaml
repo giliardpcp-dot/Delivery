@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: delivery-app-backend
+    env: docker
+    plan: free
+    region: ohio
+    disk:
+      name: pb-data
+      mountPath: /pb/pb_data
+      sizeGB: 1
