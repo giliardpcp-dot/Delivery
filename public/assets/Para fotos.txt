@@ -1,0 +1,4 @@
+​logo.png (512x512 px - Logo principal)
+​icon-192.png (192x192 px - Ícone do PWA no celular)
+​icon-512.png (512x512 px - Ícone grande do PWA)
+​splash.png (1080x1920 px - Tela de carregamento)
