@@ -1,37 +1,34 @@
 // Conectando ao seu PocketBase hospedado no Render com o link correto
 const pb = new PocketBase('https://delivery-app-backend-oeyy.onrender.com');
-
 const loginForm = document.getElementById('login-form');
 const msgErro = document.getElementById('msg-erro');
 
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log("Botão de entrar foi clicado!");
     
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
     try {
-        console.log("Tentando conectar com o PocketBase...");
-        
         // Fazendo o login na tabela 'users' do PocketBase
         const authData = await pb.collection('users').authWithPassword(email, senha);
         
-        console.log("Login autorizado com sucesso!", authData);
+        alert(`Login realizado com sucesso! Bem-vindo, ${authData.record.email}`);
         
+        // Aqui é onde vamos redirecionar o usuário baseado no 'role' dele (admin, lojista ou cliente)
         const role = authData.record.role;
-        console.log("O cargo (role) deste usuário é:", role);
+        console.log("Perfil do usuário:", role);
 
         if (role === 'admin') {
-            alert("Sucesso! Entrou como Administrador.");
+            // Redirecionar para painel do Admin
         } else if (role === 'lojista') {
-            alert("Sucesso! Entrou como Lojista.");
+            // Redirecionar para painel do Lojista
         } else {
-            alert("Sucesso! Entrou como Cliente.");
+            // Redirecionar para tela do Cliente (cardápio)
         }
 
     } catch (error) {
-        console.error("DEU ERRO NO LOGIN:", error);
-        msgErro.textContent = "Erro ao entrar. Verifique o e-mail, senha ou conexão.";
+        console.error("Erro no login:", error);
+        msgErro.textContent = "E-mail ou senha incorretos. Tente novamente.";
     }
 });
